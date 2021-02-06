@@ -1,0 +1,7 @@
+{
+    "chromeWebSecurity": false,
+    "pageLoadTimeout": 120000,
+    "testFiles": "**/*.feature",
+    "nodeVersion": "system"
+    
+  }

@@ -1,0 +1,48 @@
+[
+  {
+    "description": "  I want to Connect to DB2 from Cypress",
+    "keyword": "Feature",
+    "name": "Connect to DB2",
+    "line": 1,
+    "id": "connect-to-db2",
+    "tags": [],
+    "uri": "test-db2.feature",
+    "elements": [
+      {
+        "id": "connect-to-db2;connecting-ibm-db2",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Connecting IBM DB2",
+        "tags": [
+          {
+            "name": "@Success",
+            "line": 5
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "To connect IBM_db2",
+            "result": {
+              "status": "failed",
+              "duration": 90000000,
+              "error_message": "CypressError: `cy.task('connectDB2')` failed with the following error:\n\nThe task 'connectDB2' returned undefined. You must return a value, null, or a promise that resolves to a value or null to indicate that the task was handled.\n\nThe task handler was:\n\nconnectDB2 (connStr) {\n      console.log(\"I am Here with Conn String \"+ connStr)\n        ibmdb.open(connStr, function (err,conn) {\n            if (err) return console.log(err);\n            \n            conn.query('select 1 from sysibm.sysdummy1', function (err, data) {\n              if (err) console.log(err);\n              else console.log(data);\n           \n              conn.close(function () {\n                console.log('done');\n              });\n            });\n          });\n      }\n\nFix this in your plugins file here:\n/Volumes/Office/Authis/workout/Cype-DB2/cypress/plugins/index.js\n\nhttps://on.cypress.io/api/task\n    at http://localhost:51073/__cypress/runner/cypress_runner.js:160093:21\nFrom previous event:\n    at Context.task (http://localhost:51073/__cypress/runner/cypress_runner.js:160084:15)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:51073/__cypress/tests?p=cypress/integration/test-db2.feature:42:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:51073/__cypress/tests?p=cypress/integration/test-db2.feature:11744:9)\n    at Context.eval (http://localhost:51073/__cypress/tests?p=cypress/integration/test-db2.feature:11085:35)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:51073/__cypress/tests?p=cypress/integration/test-db2.feature:42:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:51073/__cypress/tests?p=cypress/integration/test-db2.feature:11744:9)\n    at Context.eval (http://localhost:51073/__cypress/tests?p=cypress/integration/test-db2.feature:11085:35)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "DB2 Connection should give success",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
